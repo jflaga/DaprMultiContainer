@@ -28,5 +28,3 @@ jobs:
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           appdir: "MyBackEnd"
           buildpack: "https://github.com/jincod/dotnetcore-buildpack"
-          	
-
