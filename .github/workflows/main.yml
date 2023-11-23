@@ -1,0 +1,32 @@
+name: Deploy to Heroku
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME_FRONTEND}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          appdir: "MyFrontEnd"
+          buildpack: "https://github.com/jincod/dotnetcore-buildpack"
+  build_backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME_BACKEND}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          appdir: "MyBackEnd"
+          buildpack: "https://github.com/jincod/dotnetcore-buildpack"
+          	
+
