@@ -17,7 +17,7 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME_FRONTEND}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           appdir: "MyFrontEnd"
-          buildpack: "https://github.com/jincod/dotnetcore-buildpack"
+          buildpack: "https://github.com/jincod/dotnetcore-buildpack.git"
   build_backend:
     runs-on: ubuntu-latest
     steps:
@@ -29,4 +29,4 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME_BACKEND}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           appdir: "MyBackEnd"
-          buildpack: "https://github.com/jincod/dotnetcore-buildpack"
+          buildpack: "https://github.com/jincod/dotnetcore-buildpack.git"
